@@ -9,7 +9,7 @@ import javax.jms.*;
  * @since 2019/8/29 11:19
  **/
 public class SimpleProducer {
-    private static final String URL = "tcp://192.168.0.104:61616";
+    private static final String URL = "nio://192.168.0.101:61618";
     private static final String QUEUE_NAME = "queue1";
     private static final String TOPIC_NAME = "topic1";
 

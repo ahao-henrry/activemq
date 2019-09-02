@@ -1,6 +1,8 @@
 package com.ahao.mq.consumer;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
 import java.io.IOException;
@@ -10,7 +12,8 @@ import java.io.IOException;
  * @since 2019/8/29 12:03
  **/
 public class SimpleConsumer {
-    private static final String URL = "tcp://192.168.0.104:61616";
+    private static final Logger LOGGER = LoggerFactory.getLogger(SimpleConsumer.class);
+    private static final String URL = "tcp://192.168.0.101:61618";
     private static final String QUEUE_NAME = "queue1";
     private static final String TOPIC_NAME = "topic1";
 
@@ -66,7 +69,7 @@ public class SimpleConsumer {
             if (message instanceof TextMessage) {
                 TextMessage textMessage = (TextMessage) message;
                 try {
-                    System.out.println("--**" + textMessage.getText());
+                    LOGGER.info("--** {}", textMessage.getText());
                 } catch (JMSException e) {
                     e.printStackTrace();
                 }
